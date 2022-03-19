@@ -1,0 +1,11 @@
+.root {
+	/* 測試環垃色調為綠色 */
+	primary-color: #3c7813;
+	primary-light-color: #55aa1c;
+	primary-dark-color: #326510;
+
+	cream-white: rgb(245.0,245.0,245.0);
+	-fx-background-color: cream-white;
+
+	primaty-text-color: BLACK;
+}

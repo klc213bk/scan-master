@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.SVGPath?>
+
+<fx:root style="-fx-background-color: #FFFFFF; -fx-border-color: #E0E0E0; -fx-padding: 5px;" prefWidth="580" prefHeight="380" maxWidth="580" maxHeight="380" minWidth="580" minHeight="380" type="StackPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+    <ImageView fitWidth="400" fitHeight="330" StackPane.alignment="CENTER">
+        <image>
+            <Image url="/imgs/startup.jpg" />
+        </image>
+    </ImageView>
+
+    <FlowPane style="-fx-padding: 0 5 0 5; -fx-background-color: #F0F0F0;" maxWidth="570" minWidth="570" maxHeight="34" orientation="VERTICAL" alignment="CENTER_LEFT" StackPane.alignment="BOTTOM_LEFT">
+        <children>
+
+            <HBox fx:id="paneProgressBar" style="-fx-padding: 0 0 0 0;" maxWidth="560" minWidth="560" alignment="CENTER_LEFT" spacing="0">
+                <children>
+
+		            <!--
+		            <Label fx:id="lbProgressText">載入版本資訊...</Label>
+		            <Label fx:id="lbProgressText">載入遠端版本資訊。</Label>
+		            <Label fx:id="lbProgressText">無法取得遠端版本資訊，改讀取本機版本資訊。</Label>
+		            <Label fx:id="lbProgressText">無法取得版本資訊！請確認網路連線正常後[重新取得]版本資訊，或是[關閉程式]洽系統管理者。</Label>
+		            <Label fx:id="lbProgressText">無法取得遠端及本機版本資訊！請[關閉程式]確認網路連線正常後再重新開啟程式。</Label>
+		            <Label fx:id="lbProgressText">無法取得遠端版本資訊，改讀取本機版本資訊。您可以暫時[略過]並啟動目前版本的程式，或是[關閉程式]。</Label>
+		            <Label fx:id="lbProgressText">檢查是否有新版本...</Label>	
+		            <Label fx:id="lbProgressText">版本檢查失敗！您可以[重新檢查]版本資訊，或暫時[略過]並啟動目前版本的程式。</Label>
+		            <Label fx:id="lbProgressText">已為最新版本，程式啟動中...</Label>
+		            <Label fx:id="lbProgressText">有新版本。您可以立即[下載更新]，或是暫時[略過]下次再下載。</Label>
+		            <Label fx:id="lbProgressText">檔案 3-1，jakarta.xml.bind-api-3.0.0.jar 下載中...　　　　　　[停止下載]</Label>
+		            <Label fx:id="lbProgressText">已更新為最新版本，程式啟動中...</Label>
+		            <Label fx:id="lbProgressText">更新失敗！因為[...]。您可以[重新下載]更新，或暫時[略過]並啟動目前版本的程式。</Label>
+		            -->
+
+		            <Label fx:id="lbProgressText" text="共3個檔案，檔案1 jakarta.xml.bind-api-3.0.0.jar 下載中..."/>
+
+		            <StackPane fx:id="paneSubProgress">
+
+			            <TextField fx:id="txtLaunchParameters" focusTraversable="false" StackPane.alignment="BOTTOM_RIGHT" visible="false"/>
+
+			            <HBox fx:id="panelReloadOrExit" style="-fx-padding: 0 0 0 0;" maxWidth="270" alignment="CENTER_LEFT" spacing="0" visible="false">
+			                <children>
+					            <Hyperlink onAction="#onAction_btnReload">重新取得</Hyperlink>
+					            <Label text="版本資訊，或是"/>
+					            <Hyperlink onAction="#onAction_btnExit">關閉程式</Hyperlink>
+					            <Label text="洽系統管理者。"/>
+			                </children>
+			            </HBox>
+	
+			            <HBox fx:id="panelRecheckOrSkip" style="-fx-padding: 0 0 0 0;" maxWidth="300" alignment="CENTER_LEFT" spacing="0" visible="false">
+			                <children>
+					            <Hyperlink onAction="#onAction_btnRecheck">重新檢查</Hyperlink>
+					            <Label text="版本資訊，或暫時"/>
+					            <Hyperlink onAction="#onAction_btnSkip">略過</Hyperlink>
+					            <Label visible="true" text="並啟動目前版本的程式。"/>
+			                </children>
+			            </HBox>
+
+			            <HBox fx:id="panelExit" style="-fx-padding: 0 0 0 0;" maxWidth="250" alignment="CENTER_LEFT" spacing="0" visible="false">
+			                <children>
+					            <Hyperlink onAction="#onAction_btnExit">關閉程式</Hyperlink>
+					            <Label text="確認網路連線正常後再重新開啟程式。"/>
+			                </children>
+			            </HBox>
+	
+			            <HBox fx:id="panelSkipOrExit" style="-fx-padding: 0 0 0 0;" maxWidth="250" alignment="CENTER_LEFT" spacing="0" visible="false">
+			                <children>
+					            <Hyperlink onAction="#onAction_btnSkip">略過</Hyperlink>
+					            <Label text="並啟動目前版本的程式，或是"/>
+					            <Hyperlink onAction="#onAction_btnExit">關閉程式</Hyperlink>
+					            <Label text="。"/>
+			                </children>
+			            </HBox>
+	
+			            <HBox fx:id="panelDownloadOrSkip" style="-fx-padding: 0 0 0 0;" alignment="CENTER_LEFT" maxWidth="210" spacing="0" visible="false">
+			                <children>
+					            <Hyperlink onAction="#onAction_btnUpdate">下載更新</Hyperlink>
+					            <Label text="，或是暫時"/>
+					            <Hyperlink onAction="#onAction_btnSkip">略過</Hyperlink>
+					            <Label text="下次再下載。"/>
+			                </children>
+			            </HBox>
+	
+			            <HBox fx:id="panelRetryOrSkip" style="-fx-padding: 0 0 0 0;" alignment="CENTER_LEFT" maxWidth="360" spacing="0" visible="false">
+			                <children>
+					            <Hyperlink fx:id="hlErrorMsg">...</Hyperlink>
+					            <Label text="。您可以"/>
+					            <Hyperlink onAction="#onAction_btnRetry">重新下載</Hyperlink>
+					            <Label text="更新，或暫時"/>
+					            <Hyperlink onAction="#onAction_btnSkip">略過</Hyperlink>
+					            <Label visible="true" text="並啟動目前版本的程式。"/>
+			                </children>
+			            </HBox>
+	
+			            <HBox fx:id="panelStopDownload" style="-fx-padding: 0 0 0 0;" maxWidth="60" alignment="CENTER_RIGHT" visible="false">
+			                <children>
+					            <Hyperlink onAction="#onAction_btnStop">停止下載</Hyperlink>
+			                </children>
+			            </HBox>
+
+		            </StackPane>
+
+                </children>
+            </HBox>
+
+            <StackPane fx:id="progressContainer" maxWidth="560" minWidth="560" prefHeight="5" visible="false">
+               <children>
+                  <Pane id="primary" fx:id="primary" maxHeight="-Infinity" prefHeight="5.0" StackPane.alignment="CENTER_LEFT" />
+               </children>
+            </StackPane>
+
+        </children>
+    </FlowPane>
+
+</fx:root>

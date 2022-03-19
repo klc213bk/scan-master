@@ -1,0 +1,401 @@
+.root {
+    -fx-font-family: "NotoSansTC";
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * 本段為 JFXButton 相關 CSS 設定                                                           *
+ *                                                                             *
+ ******************************************************************************/
+.jfx-button {
+	-fx-text-fill: WHITE;
+	-fx-background-color: primary-color;
+	-fx-font-size: 12px;
+    -fx-border-radius: 15pt;
+    -fx-background-radius: 15pt;
+    -fx-cursor: hand;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * 本段為區塊相關 CSS 設定                                                           *
+ *                                                                             *
+ ******************************************************************************/
+
+.section {
+	-fx-padding: 10.0;
+	-fx-background-color: white;
+	-fx-background-radius: 5.0;
+	-fx-effect: dropshadow(gaussian, rgba(0.0, 0.0, 0.0, 0.26),15.0, 0.16, 0.0, 4.0); 
+}
+
+.preview-section {
+	-fx-padding: 4.0;
+	-fx-background-color: lightgray;
+	-fx-background-radius: 2.0;
+	-fx-effect: dropshadow(gaussian, rgba(0.0, 0.0, 0.0, 0.26),15.0, 0.16, 0.0, 4.0); 
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * 本段為檔案上傳 Popup Menu 相關 CSS 設定                                            *
+ *                                                                             *
+ ******************************************************************************/
+
+.option-list-view {
+    -fx-background-color: WHITE;
+    -fx-text-fill: primaty-text-color;
+    -fx-pref-width: 120.0px;
+}
+
+.jfx-popup-container {
+    -fx-pref-width: 120.0px;
+}
+
+.jfx-popup-container .list-view .jfx-list-cell .jfx-rippler {
+    -jfx-rippler-fill: WHITE;
+}
+
+.jfx-popup-container .list-view .jfx-list-cell:selected {
+    -fx-background-color: primary-dark-color;
+}
+
+.jfx-popup-container .list-view .jfx-list-cell:filled:hover {
+    -fx-background-color: primary-color;
+}
+
+.jfx-popup-container .list-view .jfx-list-cell:selected .label,
+.jfx-popup-container .list-view .jfx-list-cell:selected SVGPath,
+.jfx-popup-container .list-view .jfx-list-cell:selected Polygon,
+.jfx-popup-container .list-view .jfx-list-cell:filled:hover .label,
+.jfx-popup-container .list-view .jfx-list-cell:filled:hover SVGPath,
+.jfx-popup-container .list-view .jfx-list-cell:filled:hover Polygon {
+    -fx-text-fill: WHITE;
+    -fx-fill:  WHITE;
+    -fx-stroke: WHITE;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * 本段為影像佇列 TableView 相關 CSS 設定                                             *
+ *                                                                             *
+ ******************************************************************************/
+
+.table-view {
+	-fx-padding: 10.0;
+	-fx-background-color: white;
+	-fx-background-radius: 5.0;
+	-fx-effect: dropshadow(gaussian, rgba(0.0, 0.0, 0.0, 0.26),15.0, 0.16, 0.0, 4.0); 
+}
+
+.table-view:focused {
+	-fx-padding: 10.0;
+	-fx-background-color: white;
+	-fx-background-radius: 5.0;
+	-fx-effect: dropshadow(gaussian, rgba(0.0, 0.0, 0.0, 0.6),15.0, 0.16, 0.0, 4.0); 
+}
+
+.table-row-cell:selected {
+    -fx-background-color: primary-color;
+    -fx-background-insets: 0, 1, 2;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: white;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: -fx-table-cell-border-color, derive(-fx-control-inner-background,-5%);
+    -fx-background-insets: 0, 0 0 1 0;
+}
+
+.table-row-cell:selected:odd {
+    -fx-background-color: primary-color;
+    -fx-background-insets: 0, 1, 2;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * 本段為 JFX Check Box 相關 CSS 設定                                               *
+ *                                                                             *
+ ******************************************************************************/
+
+.jfx-check-box {
+    -fx-font-weight: BOLD;
+}
+
+.custom-jfx-check-box-all-colored {
+    -jfx-checked-color: primary-color;
+    -fx-text-fill: GRAY;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * 本段為檔案上傳 JFXComboBox 相關 CSS 設定                                            *
+ *                                                                             *
+ ******************************************************************************/
+
+.combo-box-popup .list-view  {
+    -fx-background-color: WHITE;
+}
+
+.combo-box-popup .list-view .jfx-list-cell .jfx-rippler {
+    -jfx-rippler-fill: WHITE;
+}
+
+.combo-box-popup .list-view .jfx-list-cell:selected {
+    -fx-background-color: primary-dark-color;
+    -fx-text-fill: WHITE;
+}
+
+.combo-box-popup .list-view .jfx-list-cell:filled:hover {
+    -fx-background-color: primary-color;
+    -fx-text-fill: WHITE;
+}
+
+/*******************************************************************************
+*                                                                              *
+* JFX Decorator                                                                *
+*                                                                              *
+*******************************************************************************/
+
+.jfx-decorator {
+    -fx-decorator-color: primary-color;
+}
+
+.jfx-decorator .jfx-decorator-buttons-container {
+    -fx-background-color: -fx-decorator-color;
+}
+
+.jfx-decorator .resize-border {
+    -fx-border-color: -fx-decorator-color;
+    -fx-border-width: 0 4 4 4;
+}
+
+.jfx-decorator .jfx-decorator-title-container .jfx-decorator-text {
+    -fx-fill: WHITE;
+    -fx-font-size: 16;
+}
+
+.jfx-decorator .jfx-decorator-title-container .jfx-svg-glyph {
+    -fx-shape: "M512 682c-128.024-99.309-255.626-199.040-384-298l384-298 384 298c-128.375 98.958-255.974 198.693-384 298zM512 792l314-246 70 54-384 298-384-298 70-54z";
+    -jfx-size: 15;
+    -fx-background-color: WHITE;
+}
+
+.custom-jfx-decorator-label {
+    -fx-text-fill: WHITE;
+    -fx-font-size: 14;
+    -fx-font-weight: BOLD;
+}
+
+.custom-jfx-decorator-ripple-button .jfx-rippler {
+    -jfx-rippler-fill: cream-white;
+}
+
+.custom-jfx-decorator-ripple-button, 
+.custom-jfx-decorator-ripple-button > Pane > SVGPath, 
+.custom-jfx-decorator-ripple-button > Pane > Ellipse {
+	-fx-padding: 3;
+    -fx-fill: WHITE;
+}
+
+/*******************************************************************************
+*                                                                              *
+* JFX Badge                                                                *
+*                                                                              *
+*******************************************************************************/
+
+.icons-badge .badge-pane {
+    -fx-background-color: derive(RED, +20%);
+    -fx-background-radius: 23;
+    -fx-pref-width: 23;
+    -fx-pref-height: 23;
+    -fx-alignment: center;
+}
+
+.icons-badge Label {
+    -fx-font-size: 12.0px;
+    -fx-text-fill: WHITE;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * JFX Dialog Layout                                                           *
+ *                                                                             *
+ ******************************************************************************/
+
+.jfx-alert-overlay {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.jfx-alert-overlay > .depth-container > .jfx-alert-content-container {
+	-fx-padding: 2;
+    -fx-background-color: primary-color;
+}
+
+.jfx-dialog-layout > .jfx-layout-heading {
+	-fx-padding: 5 10 5 10;
+}
+
+.jfx-dialog-layout .jfx-layout-heading .text {
+    -fx-font-size: 14;
+	-fx-fill: WHITE;
+}
+
+.jfx-dialog-layout .jfx-layout-body {
+    -fx-background-color: WHITE;
+	-fx-padding: 25;
+}
+
+.jfx-dialog-layout .jfx-layout-body .text {
+	-fx-fill: primaty-text-color;
+}
+
+.jfx-dialog-layout .jfx-layout-actions {
+    -fx-background-color: WHITE;
+    -fx-alignment: center;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * 本段為掃描影像預覽畫面左下角的4個Button 相關 CSS 設定                                     *
+ *                                                                             *
+ ******************************************************************************/
+
+.custom-preview-ripple-button .jfx-rippler {
+    -jfx-rippler-fill: GRAY;
+    -jfx-mask-type: CIRCLE;
+}
+
+.custom-preview-ripple-button,
+.custom-preview-ripple-button > HBox > Pane > SVGPath,
+.custom-preview-ripple-button > HBox > Pane > Ellipse {
+ 	-fx-padding: 3 8 8 3;
+    -fx-fill: WHITE;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * 本段為處理中等待頁相關 CSS 設定                                                      *
+ *                                                                             *
+ ******************************************************************************/
+
+/*
+*/
+.spinner-processing {
+    -fx-background-color: WHITE;
+    -fx-background-radius: 50;
+    -fx-opacity: 0.9
+}
+
+.spinner-processing .arc {
+    -fx-stroke: primary-color;
+}
+
+.spinner-processing .track {
+    -fx-stroke: derive(primary-color, +80%);
+}
+
+.processing-pane {
+	-fx-background-color: lightgray; 
+	-fx-opacity: 0.7;
+}
+
+.processing-pane > VBox > Label {
+    -fx-background-color: WHITE;
+	-fx-text-fill: BLACK;
+	-fx-font-size: 14px;
+	-fx-padding: 10.0;
+}
+
+.processing-pane > StackPane > Label {
+	-fx-text-fill: BLACK;
+	-fx-font-size: 14px;
+}
+
+/*******************************************************************************
+*                                                                              *
+* JFX Progress Bar                                                             *
+*                                                                              *
+*******************************************************************************/
+.jfx-progress-bar {
+    -fx-pref-width: 500.0;
+}
+
+.jfx-progress-bar > .track {
+    -fx-background-color: cream-white;
+}
+
+.jfx-progress-bar > .bar {
+    -fx-background-color: primary-light-color;
+}
+
+/*******************************************************************************
+*                                                                              *
+* JFX Textfield                                                                *
+*                                                                              *
+*******************************************************************************/
+
+.jfx-text-field, .jfx-password-field, .jfx-text-area {
+    -fx-background-color: transparent;
+    -fx-font-weight: BOLD;
+    -fx-prompt-text-fill: primaty-text-color;
+    -fx-alignment: top-left;
+    -jfx-focus-color: primary-color;
+    -jfx-unfocus-color: GRAY;
+
+}
+
+.jfx-text-area .viewport {
+    -fx-background-color: #F4F4F4;
+}
+
+
+/*******************************************************************************
+*                                                                              *
+* Hyperlink                                                                    *
+*                                                                              *
+*******************************************************************************/
+
+.hyperlink {
+    -fx-border-color: transparent;
+    -fx-padding: 4 4 4 4;
+}
+
+
+/*******************************************************************************
+*                                                                              *
+* JFXSnackbar                                                                  *
+*                                                                              *
+*******************************************************************************/
+.jfx-snackbar-content {
+    -fx-background-color: #323232;
+}
+
+.jfx-snackbar-toast {
+    -fx-text-fill: WHITE;
+}
+
+.jfx-snackbar-action {
+	-fx-border-color: WHITE;
+    -fx-text-fill: WHITE;
+}
+.jfx-snackbar-action .jfx-rippler {
+    -jfx-rippler-fill: WHITE;
+}
+
+
+/*******************************************************************************
+*                                                                              *
+* JFXComboBox                                                                  *
+*                                                                              *
+*******************************************************************************/
+.jfx-combo-box {
+	-jfx-focus-color: primary-color;
+	-jfx-unfocus-color: GRAY;
+	-fx-prompt-text-fill: primaty-text-color;
+}

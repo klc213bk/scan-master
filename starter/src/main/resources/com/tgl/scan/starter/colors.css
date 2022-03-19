@@ -1,0 +1,17 @@
+.root {
+	/* 正式環垃色調為藍色 */
+	primary-color: #3f51b5;
+	primary-light-color: #7986cb;
+	primary-dark-color: #303f9f;
+
+	/*
+	secondary-color: #ff5722;
+	secondary-light-color: #ff8a65;
+	secondary-dark-color: #e64a19;
+	*/
+	
+	cream-white: rgb(245.0,245.0,245.0);
+	-fx-background-color: cream-white;
+
+	primaty-text-color: BLACK;
+}
