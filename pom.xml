@@ -1,0 +1,172 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.tgl.scan</groupId>
+	<artifactId>master</artifactId>
+	<version>${scan-master.version}</version>
+	<packaging>pom</packaging>
+	<name>TGL Scan</name>
+
+	<modules>
+		<module>bootstrap</module>
+		<module>starter</module>
+		<module>scan</module>
+		<module>config</module>
+		<module>installer</module>
+	</modules>
+
+	<properties>
+		<scan-master.version>${com.tgl.scan.scan-master.version}</scan-master.version>
+
+		<root>${maven.multiModuleProjectDirectory}</root>
+		<target>${root}/target</target>
+		<fxcache.location>${target}/fxcache</fxcache.location>
+		<lib.location>${target}/lib</lib.location>
+		<dist.location>${target}/dist</dist.location>
+		<installer.name>Setup</installer.name>
+
+		<installer.location>${dist.location}/installer</installer.location>
+		<iss.location>${target}/iss</iss.location>
+		<iss-script.location>${target}/iss-script</iss-script.location>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source> <!-- DO NOT USE JDK greater than 11 -->
+        <maven.compiler.target>11</maven.compiler.target> <!-- DO NOT USE JDK greater than 11 -->
+
+		<scan-bootstrap.version>${scan-master.version}</scan-bootstrap.version>
+		<scan-starter.version>${scan-master.version}</scan-starter.version>
+		<scan-main.version>${scan-master.version}</scan-main.version>
+		<scan-config.version>${scan-master.version}</scan-config.version>
+		<scan-installer.version>${scan-master.version}</scan-installer.version>
+
+		<org.openjfx.version>11.0.2</org.openjfx.version>
+		<httpcore.version>4.4.13</httpcore.version>
+		<httpclient.version>4.5.13</httpclient.version>
+		<httpmime.version>4.5.13</httpmime.version>
+		<commons-logging.version>1.2</commons-logging.version>
+		<!-- <commons-codec.version>1.11</commons-codec.version> --> <!-- 相依 httpclient:4.5.13 -->
+		<commons-codec.version>1.13</commons-codec.version> <!-- 2022/2/13 風險評估報告建議版本由1.11，升級至1.13 -->
+		<!-- <jsoup.version>1.13.1</jsoup.version> -->
+		<jsoup.version>1.14.2</jsoup.version> <!-- 2022/2/13 風險評估報告建議版本由1.13.1，升級至1.14.2 -->
+		<log4j-api.version>2.17.1</log4j-api.version>
+		<log4j-core.version>2.17.1</log4j-core.version>
+		<asprise-scan.version>12.0.5</asprise-scan.version>
+		<update4j.version>1.5.6</update4j.version>
+		<jfoenix.version>9.0.10</jfoenix.version>
+		<jakarta.xml.bind-api.version>3.0.1</jakarta.xml.bind-api.version>
+		<jakarta.activation.version>2.0.1</jakarta.activation.version>
+		<jaxb-runtime.version>3.0.1</jaxb-runtime.version>
+		<jaxb-core.version>3.0.1</jaxb-core.version>
+		<txw2.version>3.0.1</txw2.version>
+		<istack-commons.version>4.0.1</istack-commons.version>
+		<jna.version>5.7.0</jna.version>
+		<jna-platform.version>5.7.0</jna-platform.version>
+		<maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+		<maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>
+		<maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
+		<maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
+		<exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
+		<launch4j-maven-plugin.version>2.1.1</launch4j-maven-plugin.version>
+		<download-maven-plugin.version>1.6.6</download-maven-plugin.version>
+		<copy-rename-maven-plugin.version>1.0.1</copy-rename-maven-plugin.version>
+		<maven-antrun-plugin.version>3.0.0</maven-antrun-plugin.version>
+		<maven-replacer-plugin.version>1.5.3</maven-replacer-plugin.version>
+	</properties>
+
+	<profiles>
+		<profile>
+			<!-- DEV 開發環境 -->
+			<id>dev</id>
+			<properties>
+				<scan-master.revision>${scan-master.version}-DEV</scan-master.revision>
+				<scan-bootstrap.revision>${scan-bootstrap.version}-DEV</scan-bootstrap.revision>
+				<scan-starter.revision>${scan-starter.version}-DEV</scan-starter.revision>
+				<scan-main.revision>${scan-main.version}-DEV</scan-main.revision>
+				<scan-config.revision>${scan-config.version}-DEV</scan-config.revision>
+				<scan-installer.revision>${scan-installer.version}-DEV</scan-installer.revision>
+
+		        <build.type>dev</build.type>
+		        <build.app.id>TGL-Scan-Test</build.app.id>
+		        <build.app.name>新版影像掃描開發版</build.app.name>
+		        <build.installer.app.id>B8D84A67-6970-48AA-ADB9-30A88E618837</build.installer.app.id>
+		        <build.install.dir>${build.app.id}</build.install.dir>
+		        <build.scheme.id>tgl-scan-test</build.scheme.id>
+		        <build.launcher.product.name>ImageScanTestApp</build.launcher.product.name>
+		        <build.source.tgl-scan.properties>tgl-scan.properties.dev</build.source.tgl-scan.properties>
+		        <build.source.servers.xml>servers_test.xml</build.source.servers.xml>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<!-- UAT 測試環境 -->
+			<id>uat</id>
+			<properties>
+				<scan-master.revision>${scan-master.version}-UAT</scan-master.revision>
+				<scan-bootstrap.revision>${scan-bootstrap.version}-UAT</scan-bootstrap.revision>
+				<scan-starter.revision>${scan-starter.version}-UAT</scan-starter.revision>
+				<scan-main.revision>${scan-main.version}-UAT</scan-main.revision>
+				<scan-config.revision>${scan-config.version}-UAT</scan-config.revision>
+				<scan-installer.revision>${scan-installer.version}-UAT</scan-installer.revision>
+
+		        <build.type>uat</build.type>
+		        <build.app.id>TGL-Scan-Test</build.app.id>
+		        <build.app.name>新版影像掃描測試版</build.app.name>
+		        <build.installer.app.id>DF46EF7D-F2C2-4273-9AE3-0404DA2B04A3</build.installer.app.id>
+		        <build.install.dir>${build.app.id}</build.install.dir>
+		        <build.scheme.id>tgl-scan-test</build.scheme.id>
+		        <build.launcher.product.name>ImageScanTestApp</build.launcher.product.name>
+		        <build.source.tgl-scan.properties>tgl-scan.properties.uat</build.source.tgl-scan.properties>
+		        <build.source.servers.xml>servers_test.xml</build.source.servers.xml>
+			</properties>
+		</profile>
+		<profile>
+			<!-- PROD 正式環境 -->
+			<id>prod</id>
+			<properties>
+				<scan-master.revision>${scan-master.version}</scan-master.revision>
+				<scan-bootstrap.revision>${scan-bootstrap.version}</scan-bootstrap.revision>
+				<scan-starter.revision>${scan-starter.version}</scan-starter.revision>
+				<scan-main.revision>${scan-main.version}</scan-main.revision>
+				<scan-config.revision>${scan-config.version}</scan-config.revision>
+				<scan-installer.revision>${scan-installer.version}</scan-installer.revision>
+
+		        <build.type>prod</build.type>
+		        <build.app.id>TGL-Scan</build.app.id>
+		        <build.app.name>新版影像掃描</build.app.name>
+		        <build.installer.app.id>170973F8-9D24-4F55-9A91-0B102DBEC5D3</build.installer.app.id>
+		        <build.install.dir>${build.app.id}</build.install.dir>
+		        <build.scheme.id>tgl-scan</build.scheme.id>
+		        <build.launcher.product.name>ImageScanApp</build.launcher.product.name>
+		        <build.source.tgl-scan.properties>tgl-scan.properties.prod</build.source.tgl-scan.properties>
+		        <build.source.servers.xml>servers_prod.xml</build.source.servers.xml>
+			</properties>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.update4j</groupId>
+			<artifactId>update4j</artifactId>
+			<version>${update4j.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<!--
+				<configuration>
+					<release>11</release>
+				</configuration>
+				-->
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
