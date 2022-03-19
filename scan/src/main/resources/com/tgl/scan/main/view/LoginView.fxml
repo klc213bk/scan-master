@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.validation.RequiredFieldValidator?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+
+<fx:root type="StackPane" style="-fx-padding: 0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+    <VBox style="-fx-padding: 30 20 20 20;" prefWidth="350" minWidth="350" spacing="30" alignment="CENTER_LEFT">
+        <children>
+            <VBox fx:id="formPane" spacing="30">
+                <JFXComboBox fx:id="cmbxHost" maxWidth="1.7976931348623157E308" promptText="欲連接的易保主機" labelFloat="true">
+                    <validators>
+                        <RequiredFieldValidator message="必填欄位!">
+                            <Pane prefHeight="20" prefWidth="20">
+                                <children>
+                                    <SVGPath style="-fx-fill: red;" fillRule="EVEN_ODD" content="m7.822613,2.788951c0.947451,-1.603417 3.37259,-1.603417 4.320029,0l6.914717,11.70222c0.929224,1.57263 -0.264554,3.515769 -2.160051,3.515769l-13.829434,0c-1.895435,0 -3.08925,-1.943139 -2.159989,-3.515769l6.91473,-11.70222zm3.398983,11.679336c0,0.651488 -0.554759,1.17959 -1.23913,1.17959c-0.684322,0 -1.239105,-0.528103 -1.239105,-1.17959c0,-0.651488 0.554783,-1.17959 1.239105,-1.17959c0.684372,0 1.23913,0.528103 1.23913,1.17959zm-1.23913,-9.436723c-0.684322,0 -1.239105,0.528126 -1.239105,1.17959l0,3.538771c0,0.651464 0.554783,1.17959 1.239105,1.17959c0.684372,0 1.23913,-0.528126 1.23913,-1.17959l0,-3.538771c0,-0.651464 -0.554759,-1.17959 -1.23913,-1.17959z" />
+                                </children>
+                            </Pane>
+                        </RequiredFieldValidator>
+                    </validators>
+                </JFXComboBox>
+                <JFXTextField fx:id="txtUserName" promptText="使用者帳號" labelFloat="true">
+                    <validators>
+                        <RequiredFieldValidator message="必填欄位!">
+                            <Pane prefHeight="20" prefWidth="20">
+                                <children>
+                                    <SVGPath style="-fx-fill: red;" fillRule="EVEN_ODD" content="m7.822613,2.788951c0.947451,-1.603417 3.37259,-1.603417 4.320029,0l6.914717,11.70222c0.929224,1.57263 -0.264554,3.515769 -2.160051,3.515769l-13.829434,0c-1.895435,0 -3.08925,-1.943139 -2.159989,-3.515769l6.91473,-11.70222zm3.398983,11.679336c0,0.651488 -0.554759,1.17959 -1.23913,1.17959c-0.684322,0 -1.239105,-0.528103 -1.239105,-1.17959c0,-0.651488 0.554783,-1.17959 1.239105,-1.17959c0.684372,0 1.23913,0.528103 1.23913,1.17959zm-1.23913,-9.436723c-0.684322,0 -1.239105,0.528126 -1.239105,1.17959l0,3.538771c0,0.651464 0.554783,1.17959 1.239105,1.17959c0.684372,0 1.23913,-0.528126 1.23913,-1.17959l0,-3.538771c0,-0.651464 -0.554759,-1.17959 -1.23913,-1.17959z" />
+                                </children>
+                            </Pane>
+                        </RequiredFieldValidator>
+                    </validators>
+                </JFXTextField>
+                <JFXPasswordField fx:id="txtPassword" promptText="密碼" labelFloat="true">
+                    <validators>
+                        <RequiredFieldValidator message="必填欄位!">
+                            <Pane prefHeight="20" prefWidth="20">
+                                <children>
+                                    <SVGPath style="-fx-fill: red;" fillRule="EVEN_ODD" content="m7.822613,2.788951c0.947451,-1.603417 3.37259,-1.603417 4.320029,0l6.914717,11.70222c0.929224,1.57263 -0.264554,3.515769 -2.160051,3.515769l-13.829434,0c-1.895435,0 -3.08925,-1.943139 -2.159989,-3.515769l6.91473,-11.70222zm3.398983,11.679336c0,0.651488 -0.554759,1.17959 -1.23913,1.17959c-0.684322,0 -1.239105,-0.528103 -1.239105,-1.17959c0,-0.651488 0.554783,-1.17959 1.239105,-1.17959c0.684372,0 1.23913,0.528103 1.23913,1.17959zm-1.23913,-9.436723c-0.684322,0 -1.239105,0.528126 -1.239105,1.17959l0,3.538771c0,0.651464 0.554783,1.17959 1.239105,1.17959c0.684372,0 1.23913,-0.528126 1.23913,-1.17959l0,-3.538771c0,-0.651464 -0.554759,-1.17959 -1.23913,-1.17959z" />
+                                </children>
+                            </Pane>
+                        </RequiredFieldValidator>
+                    </validators>
+                </JFXPasswordField>
+            </VBox>
+            <HBox alignment="CENTER" spacing="20">
+                <children>
+                    <JFXButton fx:id="btnLogin" prefWidth="80" prefHeight="30" minWidth="80" buttonType="RAISED" text="登入"/>
+                    <JFXButton fx:id="btnCancel" prefWidth="80" prefHeight="30" minWidth="80" buttonType="RAISED" text="取消"/>
+                </children>
+            </HBox>
+        </children>
+    </VBox>
+
+    <StackPane fx:id="processPane" styleClass="processing-pane" visible="false">
+	    <StackPane maxWidth="100" maxHeight="100" prefWidth="100" prefHeight="100">
+	        <JFXSpinner styleClass="spinner-processing" startingAngle="0"/>
+            <Label fx:id="processText" styleClass="text" text="登入中" />
+	    </StackPane>
+        <!--
+        <VBox spacing="0" alignment="CENTER" style="-fx-border-color: RED;">
+            <ImageView>
+                <image>
+                    <Image url="images/processing.gif" />
+                </image>
+            </ImageView>
+            <Label fx:id="processText" styleClass="text" text="登入中." />
+        </VBox>
+        -->
+    </StackPane>
+
+</fx:root>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Servers>
+	<Server name="UPREPROD" url="http://10.67.65.8:9080/ls" />
+	<Server name="PROD-DEV" url="http://10.67.67.7:9080/ls" />
+	<Server name="UPRODUAT" url="http://10.67.67.8:9080/ls" />
+	<Server name="UPMC1" url="http://10.67.67.3:9080/ls" />
+	<Server name="UPMC2" url="http://10.67.67.3:9081/ls" />
+	<Server name="UPCR1" url="http://10.67.67.9:9080/ls" />
+	<Server name="UPCR2" url="http://10.67.67.9:9081/ls" />
+	<Server name="UASDUAT2" url="http://10.67.67.245:9080/ls" />
+	<Server name="USPAUAT" url="http://10.67.67.245:9081/ls" />
+	<Server name="UASDUAT3" url="http://10.67.65.73:9080/ls" />
+	<Server name="USIT1" url="http://10.67.70.16:9080/ls" />
+	<Server name="USIT2" url="http://10.67.70.16:9081/ls" />
+	<Server name="UBAEBAO" url="http://10.67.67.8:9081/ls" />
+	<Server name="UASDEBAO" url="http://10.67.67.7:9081/ls" />
+</Servers>

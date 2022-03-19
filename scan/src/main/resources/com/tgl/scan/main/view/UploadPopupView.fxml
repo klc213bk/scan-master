@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.SVGPath?>
+<?import java.lang.Double?>
+
+<JFXListView fx:id="uploadPopupList" styleClass="option-list-view" onMouseClicked="#submit" 
+             xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <Label>
+        上傳 (Ctrl+U)
+        <graphic>
+            <StackPane fx:id="btnUploadFileContainer">
+                <Pane prefHeight="24" prefWidth="24">
+                    <children>
+                        <SVGPath content="m18.786547,9.368592l-6.573289,-6.172574l-0.564406,0l-0.209274,0l-6.189514,0l0,17.436415l13.539492,0l0,-11.262759l-0.003009,-0.001081zm-6.573289,-5.145201l5.09544,4.784754l-5.09544,0l0,-4.784754zm-6.189514,15.682531l0,-15.983392l5.415834,0l0,5.812127l6.576335,0l0,10.17123l-11.99217,0l0,0.000035z" />
+                        <!--
+                        <ImageView>
+                            <image>
+                                <Image url="images/icon-action-upload.png" />
+                            </image>
+                        </ImageView>
+                        -->
+                    </children>
+                </Pane>
+            </StackPane>
+        </graphic>
+    </Label>
+    <Label>
+        上傳全部 (Ctrl+Y)
+        <graphic>
+            <StackPane fx:id="btnUploadFilesContainer">
+                <Pane prefHeight="24" prefWidth="24">
+                    <children>
+                        <SVGPath content="m21.626327,5.749392l-4.456809,-3.879889l-9.805045,0l0,3.103903l-5.34819,0l0,17.071408l14.261855,0l0,-3.103903l5.34819,0l0,-13.191519zm-4.456809,-2.782585l3.196375,2.782545l-3.196375,0l0,-2.782545zm-14.261901,18.302021l0,-15.519436l8.022285,0l0,3.879849l4.456809,0l0,11.639587l-12.479094,0zm8.913665,-15.198118l3.196375,2.782545l-3.196375,0l0,-2.782545zm4.456856,12.094255l0,-9.31171l-4.456809,-3.879849l-3.565475,0l0,-2.327917l8.022285,0l0,3.879849l4.456809,0l0,11.639627l-4.456809,0z" />
+                        <!--
+                        <ImageView>
+                            <image>
+                                <Image url="images/icon-action-upload-all.png" />
+                            </image>
+                        </ImageView>
+                        -->
+                    </children>
+                </Pane>
+            </StackPane>
+        </graphic>
+    </Label>
+    <Label>
+        詳細資訊 (Ctrl+D)
+        <graphic>
+            <StackPane fx:id="btnUploadStatusContainer">
+                <Pane prefHeight="24" prefWidth="24">
+                    <children>
+                        <SVGPath content="m11.973548,8.691844c0.608895,0 1.102938,-0.48003 1.102938,-1.071654c0,-0.59235 -0.494043,-1.070964 -1.102938,-1.070964c-0.608932,0 -1.102938,0.47865 -1.102938,1.070964c0,0.591624 0.494006,1.071654 1.102938,1.071654z" />
+                        <Polygon points="12.72247314453125,10.12071704864502,12.72247314453125,9.745348930358887,12.72247314453125,9.406281471252441,10.516603469848633,9.406281471252441,10.516603469848633,10.12071704864502,11.251893043518066,10.12071704864502,11.251893043518066,16.193418502807617,10.516603469848633,16.193418502807617,10.516603469848633,16.907854080200195,13.45776653289795,16.907854080200195,13.45776653289795,16.193418502807617,12.72247314453125,16.193418502807617" />
+                        <SVGPath content="m11.927592,3.007033c-5.075944,0 -9.191152,3.998481 -9.191152,8.930448c0,4.932693 4.115207,8.930448 9.191152,8.930448c5.075944,0 9.191152,-3.997755 9.191152,-8.930448c0,-4.931967 -4.11517,-8.930448 -9.191152,-8.930448zm0,17.14646c-4.662716,0 -8.45586,-3.685915 -8.45586,-8.216012s3.793181,-8.216012 8.45586,-8.216012c4.662716,0 8.45586,3.685915 8.45586,8.216012s-3.793144,8.216012 -8.45586,8.216012z" />
+                        <!--
+                        <ImageView>
+                            <image>
+                                <Image url="images/icon-action-upload-log.png" />
+                            </image>
+                        </ImageView>
+                        -->
+                    </children>
+                </Pane>
+            </StackPane>
+        </graphic>
+    </Label>
+</JFXListView>

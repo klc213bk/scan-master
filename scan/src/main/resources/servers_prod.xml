@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Servers>
+	<Server name="PROD" url="http://lifesysf5.transglobe.com.tw/ls" />
+</Servers>

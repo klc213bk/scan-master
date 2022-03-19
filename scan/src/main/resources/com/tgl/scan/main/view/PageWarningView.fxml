@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<fx:root type="StackPane" style="-fx-padding: 0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+    <VBox style="-fx-padding: 5 5 5 5;" prefWidth="850" spacing="10" alignment="CENTER_LEFT">
+        <children>
+            <!--
+            <Label text="請注意:以下影像頁數不符!" />
+            -->
+            <StackPane>
+                <TableView fx:id="pageWarningTableView">
+                    <columns>
+                        <TableColumn fx:id="scanOrderColumn" text="序號"></TableColumn>
+                        <TableColumn fx:id="fileCodeColumn" text="文件編號"></TableColumn>
+                        <TableColumn fx:id="mainFileTypeColumn" text="影像主類型"></TableColumn>
+                        <TableColumn fx:id="fileTypeColumn" text="影像子類型"></TableColumn>
+                        <TableColumn fx:id="companyCodeColumn" text="公司碼(團險保單號碼)"></TableColumn>
+                        <TableColumn fx:id="personalCodeColumn" text="個人碼"></TableColumn>
+                        <TableColumn fx:id="filePageColumn" text="頁碼"></TableColumn>
+                        <TableColumn fx:id="scanTimeColumn" text="掃描日期/時間"></TableColumn>
+                        <TableColumn fx:id="remarkColumn" text="備註"></TableColumn>
+                    </columns>
+                </TableView>
+            </StackPane>
+            <HBox style="-fx-padding: 5 0 5 0;" alignment="CENTER" spacing="20">
+                <children>
+                    <JFXButton fx:id="btnCancel" prefWidth="80" prefHeight="30" minWidth="80" buttonType="RAISED"/>
+                    <JFXButton fx:id="btnUpload" prefWidth="80" prefHeight="30" minWidth="80" buttonType="RAISED"/>
+                </children>
+            </HBox>
+        </children>
+    </VBox>
+
+</fx:root>

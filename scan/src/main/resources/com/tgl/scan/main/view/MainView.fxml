@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.geometry.Insets?>
+<?import com.jfoenix.validation.RequiredFieldValidator?>
+<?import javafx.collections.FXCollections?>
+
+<fx:root fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="650.0" type="StackPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+<StackPane>
+
+    <SplitPane fx:id="splitPane" focusTraversable="true">
+        <items>
+
+            <ScrollPane fx:id="previewScrollPane" minWidth="200" fitToHeight="true" fitToWidth="true" pannable="true" hbarPolicy="AS_NEEDED" vbarPolicy="AS_NEEDED">
+                <content>
+                    <StackPane fx:id="previewStackPane" styleClass="preview-section">
+                        <ImageView fx:id="previewImageView" visible="false">
+                        </ImageView>
+                        <ImageView fx:id="logoImageView" visible="true">
+                            <image>
+                                <Image url="images/tgl-logo.png" />
+                            </image>
+                        </ImageView>
+                    </StackPane>
+                </content>
+            </ScrollPane>
+
+            <ScrollPane minWidth="200" fitToHeight="true" fitToWidth="true" hbarPolicy="AS_NEEDED" vbarPolicy="AS_NEEDED">
+               <content>
+
+    <VBox spacing="5" style="-fx-padding: 5 5 5 5;">
+
+        <!-- 影像索引 -->
+        <StackPane fx:id="imageTableStackPane" minHeight="180">
+            <TableView fx:id="imageTableView" tableMenuButtonVisible="true">
+                <columns>
+                    <TableColumn fx:id="indexNoColumn" prefWidth="0" text="項目" resizable="false"></TableColumn>
+                    <TableColumn fx:id="scanOrderColumn" prefWidth="40" text="序號"></TableColumn>
+                    <TableColumn fx:id="sendEmailColumn" prefWidth="45" text="是否發EMAIL"></TableColumn>
+                    <TableColumn fx:id="isRemoteColumn" prefWidth="45" text="視訊投保件"></TableColumn>
+                    <TableColumn fx:id="fileCodeColumn" prefWidth="100" text="文件編號"></TableColumn>
+                    <TableColumn fx:id="mainFileTypeTextColumn" prefWidth="90" text="影像主類型"></TableColumn>
+                    <TableColumn fx:id="fileTypeTextColumn" prefWidth="200" text="影像子類型"></TableColumn>
+                    <TableColumn fx:id="companyCodeColumn" prefWidth="90" text="公司碼(團險保單號碼)" visible="false"></TableColumn>
+                    <TableColumn fx:id="personalCodeColumn" prefWidth="60" text="個人碼" visible="false"></TableColumn>
+                    <TableColumn fx:id="filePageColumn" prefWidth="30" text="頁碼"></TableColumn>
+                    <TableColumn fx:id="scanTimeColumn" prefWidth="120" text="掃描日期/時間"></TableColumn>
+                    <TableColumn fx:id="actionTypeColumn" prefWidth="40" text="備註"></TableColumn>
+                </columns>
+            </TableView>
+        </StackPane>
+
+        <!-- 索引設置 -->
+        <GridPane styleClass="section" hgap="2" vgap="2">
+
+            <children>
+                <!-- Row 0 -->
+                <HBox styleClass="text-separator" alignment="CENTER_LEFT" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="8">
+                    <children>
+                        <Pane minHeight="1.0" minWidth="50.0" styleClass="line" />
+                        <Label styleClass="text" text="索引設置" />
+                        <Pane maxWidth="1.7976931348623157E308" minHeight="1.0" styleClass="line" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                <!-- Row 1 -->
+                <Label GridPane.rowIndex="1" GridPane.columnIndex="0" disable="true">組織編碼</Label>
+                <JFXTextField fx:id="txtOrgName" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="3" disable="true"/>
+                <Label GridPane.rowIndex="1" GridPane.columnIndex="4" GridPane.halignment="RIGHT" textAlignment="RIGHT" alignment="CENTER_RIGHT" prefWidth="100" minWidth="100" disable="true">部室名稱</Label>
+                <JFXTextField fx:id="txtDeptName" GridPane.rowIndex="1" GridPane.columnIndex="5" GridPane.columnSpan="3" maxWidth="1.7976931348623157E308" disable="true"/>
+                <!-- Row 2 -->
+                <Label GridPane.rowIndex="2" GridPane.columnIndex="0">影像主類型</Label>
+                <JFXComboBox fx:id="cbbMainFileType" GridPane.rowIndex="2" GridPane.columnIndex="1" maxWidth="1.7976931348623157E308" GridPane.hgrow="always" prefWidth="120" minWidth="120"/>
+                <Label GridPane.rowIndex="2" GridPane.columnIndex="2" GridPane.halignment="RIGHT" textAlignment="RIGHT" alignment="CENTER_RIGHT" prefWidth="65" minWidth="65">影像子類型</Label>
+                <JFXComboBox fx:id="cbbFileType" GridPane.rowIndex="2" GridPane.columnIndex="3" GridPane.columnSpan="5" maxWidth="1.7976931348623157E308" GridPane.hgrow="always"/>
+                <!-- Row 3 -->
+                <Label GridPane.rowIndex="3" GridPane.columnIndex="0">文件編號</Label>
+                <JFXTextField fx:id="txtFileCode" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.columnSpan="3"/>
+                <Label GridPane.rowIndex="3" GridPane.columnIndex="4" GridPane.halignment="RIGHT">頁碼</Label>
+                <JFXTextField fx:id="txtFilePage" GridPane.rowIndex="3" GridPane.columnIndex="5" GridPane.columnSpan="3"/>
+                <!-- Row 4 -->
+                <Label GridPane.rowIndex="4" GridPane.columnIndex="0">箱號</Label>
+                <JFXComboBox fx:id="cbbBoxNumber" GridPane.rowIndex="4" GridPane.columnIndex="1" maxWidth="1.7976931348623157E308" GridPane.hgrow="always" prefWidth="120" minWidth="120"/>
+                <!-- Row 5 -->
+                <Label fx:id="lbDeptId" GridPane.rowIndex="5" GridPane.columnIndex="0" prefHeight="36" minHeight="36" wrapText="true" GridPane.vgrow="always">批次號碼-部門別</Label>
+                <JFXComboBox fx:id="cbbBatchDeptType" GridPane.rowIndex="5" GridPane.columnIndex="1" maxWidth="1.7976931348623157E308" GridPane.hgrow="always" prefWidth="120" minWidth="120"/>
+                <Label GridPane.rowIndex="5" GridPane.columnIndex="2" GridPane.halignment="RIGHT">日期</Label>
+                <JFXTextField fx:id="txtBatchDate" GridPane.rowIndex="5" GridPane.columnIndex="3" minWidth="100"/>
+                <Label GridPane.rowIndex="5" GridPane.columnIndex="4" GridPane.halignment="RIGHT">分區</Label>
+                <JFXTextField fx:id="txtBatchArea" GridPane.rowIndex="5" GridPane.columnIndex="5" minWidth="100"/>
+                <Label GridPane.rowIndex="5" GridPane.columnIndex="6" GridPane.halignment="RIGHT" textAlignment="RIGHT" alignment="CENTER_RIGHT" prefWidth="65" minWidth="65">文件別</Label>
+                <JFXTextField fx:id="txtBatchDocType" GridPane.rowIndex="5" GridPane.columnIndex="7" minWidth="100"/>
+                <!-- Row 6 -->
+                <Label fx:id="lbCompanyCode" GridPane.rowIndex="6" GridPane.columnIndex="0" prefWidth="80" minWidth="80" prefHeight="36" minHeight="36" wrapText="true" GridPane.vgrow="always">公司碼(團險保單號碼)</Label>
+                <JFXTextField fx:id="txtCompanyCode" GridPane.rowIndex="6" GridPane.columnIndex="1" GridPane.columnSpan="3"/>
+                <Label GridPane.rowIndex="6" GridPane.columnIndex="4" GridPane.halignment="RIGHT">個人碼</Label>
+                <JFXTextField fx:id="txtPersonalCode" GridPane.rowIndex="6" GridPane.columnIndex="5" GridPane.columnSpan="3"/>
+                <!-- Row 7 -->
+                <Label fx:id="lbActionReplace" GridPane.rowIndex="7" GridPane.columnIndex="0" disable="false">替換</Label>
+                <JFXComboBox fx:id="cbbActionReplace" GridPane.rowIndex="7" GridPane.columnIndex="1" maxWidth="1.7976931348623157E308" GridPane.hgrow="always" prefWidth="120" minWidth="120" disable="false"/>
+                <Label fx:id="lbActionInsert" GridPane.rowIndex="7" GridPane.columnIndex="2" GridPane.halignment="RIGHT" disable="false">插入</Label>
+                <JFXComboBox fx:id="cbbActionInsert" GridPane.rowIndex="7" GridPane.columnIndex="3" maxWidth="1.7976931348623157E308" GridPane.hgrow="always" prefWidth="120" minWidth="120" disable="false"/>
+                <Label fx:id="lbSendEmail" GridPane.rowIndex="7" GridPane.columnIndex="4" GridPane.halignment="RIGHT" textAlignment="RIGHT" alignment="CENTER_RIGHT" prefHeight="36" minHeight="36" wrapText="true" GridPane.vgrow="always" disable="false">是否發EMAIL(補送掃件應選否)</Label>
+                <JFXComboBox fx:id="cbbSendEmail" GridPane.rowIndex="7" GridPane.columnIndex="5" maxWidth="1.7976931348623157E308" GridPane.hgrow="always" prefWidth="120" minWidth="120" disable="false"/>
+                <Label fx:id="lbIsRemote" GridPane.rowIndex="7" GridPane.columnIndex="6" GridPane.halignment="RIGHT" disable="false">視訊投保件</Label>
+                <JFXComboBox fx:id="cbbIsRemote" GridPane.rowIndex="7" GridPane.columnIndex="7" maxWidth="1.7976931348623157E308" GridPane.hgrow="always" prefWidth="120" minWidth="120" disable="false"/>
+
+                <!-- Row 8 -->
+                <Label GridPane.rowIndex="8" GridPane.columnIndex="0">影像備註</Label>
+                <JFXTextField fx:id="txtRemark" GridPane.rowIndex="8" GridPane.columnIndex="1" GridPane.columnSpan="7"/>
+                <!-- Row 9 -->
+                <HBox alignment="CENTER" spacing="5" style="-fx-padding: 10 0 0 0;" GridPane.rowIndex="9" GridPane.columnIndex="0" GridPane.columnSpan="8">
+                    <children>
+                        <JFXButton fx:id="btnUpdate" prefWidth="80" prefHeight="30" minWidth="80" buttonType="RAISED" text="設置" disable="true"/>
+                        <JFXButton fx:id="btnRemove" prefWidth="80" prefHeight="30" minWidth="80" buttonType="RAISED" text="刪除" disable="true"/>
+                        <JFXButton fx:id="btnRemovePartial" prefWidth="80" prefHeight="30" minWidth="80" buttonType="RAISED" text="整批刪除" disable="true"/>
+                        <JFXButton fx:id="btnCopy" prefWidth="80" prefHeight="30" minWidth="80" buttonType="RAISED" text="複製" disable="true"/>
+                        <JFXButton fx:id="btnImport" prefWidth="80" prefHeight="30" minWidth="80" buttonType="RAISED" text="導入"/>
+                    </children>
+                </HBox>
+            </children>
+
+            <columnConstraints>
+                <ColumnConstraints fillWidth="true" hgrow="ALWAYS"/>
+                <ColumnConstraints fillWidth="true" hgrow="ALWAYS"/>
+                <ColumnConstraints fillWidth="true" hgrow="ALWAYS"/>
+                <ColumnConstraints fillWidth="true" hgrow="ALWAYS"/>
+                <ColumnConstraints fillWidth="true" hgrow="ALWAYS"/>
+                <ColumnConstraints fillWidth="true" hgrow="ALWAYS"/>
+                <ColumnConstraints fillWidth="true" hgrow="ALWAYS"/>
+                <ColumnConstraints fillWidth="true" hgrow="ALWAYS"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints fillHeight="true" vgrow="ALWAYS"/>
+                <RowConstraints fillHeight="true" vgrow="ALWAYS"/>
+                <RowConstraints fillHeight="true" vgrow="ALWAYS"/>
+                <RowConstraints fillHeight="true" vgrow="ALWAYS"/>
+                <RowConstraints fillHeight="true" vgrow="ALWAYS"/>
+                <RowConstraints fillHeight="true" vgrow="ALWAYS"/>
+                <RowConstraints fillHeight="true" vgrow="ALWAYS"/>
+                <RowConstraints fillHeight="true" vgrow="ALWAYS"/>
+                <RowConstraints fillHeight="true" vgrow="ALWAYS"/>
+                <RowConstraints fillHeight="true" vgrow="ALWAYS"/>
+            </rowConstraints>
+
+        </GridPane>
+
+        <!-- 影像操作 -->
+        <GridPane styleClass="section" hgap="5" vgap="2">
+            <columnConstraints>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+                <ColumnConstraints/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints/>
+                <RowConstraints/>
+            </rowConstraints>
+            <children>
+                <!-- Row 0 -->
+                <HBox styleClass="text-separator" alignment="CENTER_LEFT" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="8">
+                    <children>
+                        <Pane minHeight="1.0" minWidth="50.0" styleClass="line" />
+                        <Label styleClass="text" text="影像操作" />
+                        <Pane maxWidth="1.7976931348623157E308" minHeight="1.0" styleClass="line" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                <!-- Row 1 -->
+                <Label GridPane.rowIndex="1" GridPane.columnIndex="0">紙張來源</Label>
+                <JFXComboBox fx:id="cbbDuplexMode" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label GridPane.rowIndex="1" GridPane.columnIndex="2">影像模式</Label>
+                <JFXComboBox fx:id="cbbColorMode" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+                <JFXButton fx:id="btnScanSettings" GridPane.rowIndex="1" GridPane.columnIndex="4" prefWidth="80" prefHeight="30" minWidth="80" buttonType="RAISED" text="掃描配置"/>
+                <Hyperlink fx:id="hlSourceName" GridPane.rowIndex="1" GridPane.columnIndex="5">*未設定</Hyperlink>
+                <JFXButton fx:id="btnScan" GridPane.rowIndex="1" GridPane.columnIndex="6" prefWidth="80" prefHeight="30" minWidth="80" buttonType="RAISED" text="開始掃描"/>
+            </children>
+        </GridPane>
+
+    </VBox>
+
+               </content>
+            </ScrollPane>
+        </items>
+    </SplitPane>
+
+    <FlowPane prefWidth="40" prefHeight="180" maxWidth="40" maxHeight="180" orientation="VERTICAL" vgap="5" alignment="CENTER" StackPane.alignment="BOTTOM_LEFT">
+        <children>
+            <JFXButton fx:id="btnZoomIn" prefWidth="40" prefHeight="40" contentDisplay="GRAPHIC_ONLY" styleClass="custom-preview-ripple-button" disable="true">
+                <graphic>
+                 <HBox fillHeight="false" alignment="CENTER" scaleX="1.5" scaleY="1.5">
+                     <Pane>
+                         <children>
+                             <SVGPath content="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                             <SVGPath content="M12 10h-2v2H9v-2H7V9h2V7h1v2h2v1z"/>
+                         </children>
+                     </Pane>
+                 </HBox>
+                </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnZoomOut" prefWidth="40" prefHeight="40" contentDisplay="GRAPHIC_ONLY" styleClass="custom-preview-ripple-button" disable="true">
+                <graphic>
+                 <HBox fillHeight="false" alignment="CENTER" scaleX="1.5" scaleY="1.5">
+                     <Pane>
+                         <children>
+                             <SVGPath content="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14zM7 9h5v1H7z"/>
+                         </children>
+                     </Pane>
+                 </HBox>
+                </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnRotateRight" prefWidth="40" prefHeight="40" contentDisplay="GRAPHIC_ONLY" styleClass="custom-preview-ripple-button" disable="true">
+                <graphic>
+                 <HBox fillHeight="false" alignment="CENTER" scaleX="1.5" scaleY="1.5">
+                     <Pane>
+                         <children>
+                             <SVGPath content="M15.55 5.55L11 1v3.07C7.06 4.56 4 7.92 4 12s3.05 7.44 7 7.93v-2.02c-2.84-.48-5-2.94-5-5.91s2.16-5.43 5-5.91V10l4.55-4.45zM19.93 11c-.17-1.39-.72-2.73-1.62-3.89l-1.42 1.42c.54.75.88 1.6 1.02 2.47h2.02zM13 17.9v2.02c1.39-.17 2.74-.71 3.9-1.61l-1.44-1.44c-.75.54-1.59.89-2.46 1.03zm3.89-2.42l1.42 1.41c.9-1.16 1.45-2.5 1.62-3.89h-2.02c-.14.87-.48 1.72-1.02 2.48z"/>
+                         </children>
+                     </Pane>
+                 </HBox>
+                </graphic>
+            </JFXButton>
+            <JFXButton fx:id="btnRotateLeft" prefWidth="40" prefHeight="40" contentDisplay="GRAPHIC_ONLY" styleClass="custom-preview-ripple-button" disable="true">
+                <graphic>
+                 <HBox fillHeight="false" alignment="CENTER" scaleX="1.5" scaleY="1.5">
+                     <Pane>
+                         <children>
+                             <SVGPath content="M7.11 8.53L5.7 7.11C4.8 8.27 4.24 9.61 4.07 11h2.02c.14-.87.49-1.72 1.02-2.47zM6.09 13H4.07c.17 1.39.72 2.73 1.62 3.89l1.41-1.42c-.52-.75-.87-1.59-1.01-2.47zm1.01 5.32c1.16.9 2.51 1.44 3.9 1.61V17.9c-.87-.15-1.71-.49-2.46-1.03L7.1 18.32zM13 4.07V1L8.45 5.55 13 10V6.09c2.84.48 5 2.94 5 5.91s-2.16 5.43-5 5.91v2.02c3.95-.49 7-3.85 7-7.93s-3.05-7.44-7-7.93z"/>
+                         </children>
+                     </Pane>
+                 </HBox>
+                </graphic>
+            </JFXButton>
+        </children>
+        <StackPane.margin>
+            <Insets bottom="30.0" left="20.0" />
+        </StackPane.margin>
+    </FlowPane>
+
+    <StackPane fx:id="processPane" styleClass="processing-pane" visible="false">
+	    <StackPane maxWidth="100" maxHeight="100" prefWidth="100" prefHeight="100">
+	        <JFXSpinner styleClass="spinner-processing" startingAngle="0"/>
+            <Label fx:id="processText" styleClass="text" text="處理中" />
+	    </StackPane>
+        <!--
+        <VBox spacing="0" alignment="CENTER">
+            <ImageView>
+                <image>
+                    <Image url="images/processing.gif" />
+                </image>
+            </ImageView>
+            <Label fx:id="processText" styleClass="text" text="處理中..." />
+        </VBox>
+        -->
+    </StackPane>
+
+</StackPane>
+
+</fx:root>

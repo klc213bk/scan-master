@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<fx:root type="StackPane" style="-fx-padding: 0;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+    <VBox style="-fx-padding: 5 5 10 5;" prefWidth="850" spacing="10">
+        <children>
+            <StackPane>
+                <TableView fx:id="uploadTableView">
+                    <columns>
+                        <TableColumn fx:id="uploadStatusColumn" minWidth="50" text="上傳"></TableColumn>
+                        <TableColumn fx:id="scanOrderColumn" text="序號"></TableColumn>
+                        <TableColumn fx:id="fileCodeColumn" text="文件編號"></TableColumn>
+                        <TableColumn fx:id="mainFileTypeColumn" text="影像主類型"></TableColumn>
+                        <TableColumn fx:id="fileTypeColumn" text="影像子類型"></TableColumn>
+                        <TableColumn fx:id="companyCodeColumn" text="公司碼(團險保單號碼)"></TableColumn>
+                        <TableColumn fx:id="personalCodeColumn" text="個人碼"></TableColumn>
+                        <TableColumn fx:id="filePageColumn" text="頁碼"></TableColumn>
+                        <TableColumn fx:id="scanTimeColumn" text="掃描日期/時間"></TableColumn>
+                        <TableColumn fx:id="remarkColumn" text="備註"></TableColumn>
+                    </columns>
+                </TableView>
+            </StackPane>
+            <StackPane>
+                <JFXProgressBar fx:id="uploadProgress" maxWidth="1.7976931348623157E308" minHeight="30" progress="0.67"></JFXProgressBar>
+                <HBox spacing="5" alignment="CENTER">
+                    <children>
+                        <Label text="成功合計：" alignment="CENTER_RIGHT"/>
+                        <Label fx:id="lbSuccess" prefWidth="80" text="0" alignment="CENTER_LEFT" opacity="0.8" style="-fx-background-color: WHITE;"/>
+                        <Label text="上傳合計：" alignment="CENTER_RIGHT"/>
+                        <Label fx:id="lbUpload" prefWidth="80" text="0" alignment="CENTER_LEFT" opacity="0.8" style="-fx-background-color: WHITE;"/>
+                        <Label text="失敗合計：" alignment="CENTER_RIGHT"/>
+                        <Label fx:id="lbFailed" prefWidth="80" text="0" alignment="CENTER_LEFT" opacity="0.8" style="-fx-background-color: WHITE;"/>
+                    </children>
+                </HBox>
+            </StackPane>
+            <!--
+            <HBox style="-fx-padding: 5 0 5 0;" alignment="CENTER" spacing="20">
+                <children>
+                    <JFXButton fx:id="btnCancel" prefWidth="80" prefHeight="30" minWidth="80" buttonType="RAISED"/>
+                    <JFXButton fx:id="btnUpload" prefWidth="80" prefHeight="30" minWidth="80" buttonType="RAISED"/>
+                </children>
+            </HBox>
+            -->
+        </children>
+    </VBox>
+
+</fx:root>
